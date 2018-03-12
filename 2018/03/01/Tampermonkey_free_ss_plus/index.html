@@ -15,10 +15,13 @@
 <meta property="og:site_name" content="瞎折腾">
 <meta property="og:description" content="前言此篇文字完全为零基础，高手请绕道。。。 对于油猴的功能已经没必要解释太多，只能以神器来解释。 本人只是一个只会C(死皮赖脸地算个精通) \C++(打死多算也就算略懂皮毛) \VB(曾几何时也就这个拿得出收)的过时码农，对于JS\HTML……等等前端开发为空白码农。 曾几何时樱花docker盛行的时候，就在上面摆弄着ss/ssr服务器，也不存在这求人一说（可怜的点点工资供奉完奶粉后早已所剩无几）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-12T08:49:14.380Z">
+<meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180312/e9BAD7jFJL.png?imageslim">
+<meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180312/0HdJlG4cF6.png?imageslim">
+<meta property="og:updated_time" content="2018-03-12T09:32:38.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[油猴]小白写油猴脚本之free_ss脚本源码的编写">
 <meta name="twitter:description" content="前言此篇文字完全为零基础，高手请绕道。。。 对于油猴的功能已经没必要解释太多，只能以神器来解释。 本人只是一个只会C(死皮赖脸地算个精通) \C++(打死多算也就算略懂皮毛) \VB(曾几何时也就这个拿得出收)的过时码农，对于JS\HTML……等等前端开发为空白码农。 曾几何时樱花docker盛行的时候，就在上面摆弄着ss/ssr服务器，也不存在这求人一说（可怜的点点工资供奉完奶粉后早已所剩无几）">
+<meta name="twitter:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180312/e9BAD7jFJL.png?imageslim">
   
     <link rel="alternate" href="/atom.xml" title="瞎折腾" type="application/atom+xml">
   
@@ -97,7 +100,57 @@
 <p>曾几何时樱花docker盛行的时候，就在上面摆弄着ss/ssr服务器，也不存在这求人一说（可怜的点点工资供奉完奶粉后早已所剩无几）。自从樱花关闭众测后，也就步上了不停地找免费的资源的路上。自从找到了<a href="http://free-ss.site" target="_blank" rel="noopener">free-ss</a>，自此也就安定下来了。</p>
 <p>关注过<a href="http://free-ss.site" target="_blank" rel="noopener">free-ss</a>的朋友肯定也了解过，提供的资源很多可能只有存活几个小时，时常要刷新、检测服务器的有效性，非常的麻烦，在后面我会再写一篇我的方法。</p>
 <p>下面进入正题吧。</p>
-<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>其实作者真的非常的煞费苦心，不止提供了那么多免费资源，还要不停地防止各种爬虫，隔三差五地更新代码，只是为了让我们这些手动党能够拿到自己需要的。</p>
+<hr>
+<h1 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h1><p>其实作者真的非常的煞费苦心，不止提供了那么多免费资源，还要不停地防止各种爬虫，隔三差五地更新代码，只是为了让我们这些手动党能够拿到自己需要的，其中的艰辛从源码中可见一斑。</p>
+<p><img src="http://p5gykd3ui.bkt.clouddn.com/blog/180312/e9BAD7jFJL.png?imageslim" alt="源码部分截图"></p>
+<p>从页面和源码都能看出，网站使用了表格<code>table</code>控件，那么，我们把它找出来。</p>
+<h1 id="获取真实表格"><a href="#获取真实表格" class="headerlink" title="获取真实表格"></a>获取真实表格</h1><p><strong>调试源码推荐使用火狐浏览器</strong></p>
+<p>思路：从源码中获取所有的表格，然后比较长度，判断出真实的数据表格。</p>
+<pre><code>var ss_num=0;  //有效的SS服务器数量
+var s3=document.createElement(&quot;table&quot;);  //真实的列表
+
+//打印调试信息统一接口
+function print(str) {
+    console.log(str);
+}
+
+//获取表格
+function gettab(){
+    var tab = document.getElementsByTagName(&quot;table&quot;); //获取网页中所有的表格
+    print(&apos;表格数:&apos; + tab.length);  //打印表格数量
+
+    //判断所有的表格，取第二个长表格，因为第一个长表格是加密的表格，第二个长表格是解密后的表格
+    var tabindex ,tabmax = 0, tabmaxnum = 0, test = 0;
+    for(tabindex = 0; tabindex &lt; tab.length; tabindex++)
+    {
+        print(&apos;表格&apos; + tabindex + &apos;长&apos; + tab[tabindex].rows.length);
+        //比较表格长度
+        if(tab[tabindex].rows.length &gt; tabmaxnum)
+        {
+            //过滤第一个长表格
+            if(test == 0)
+            {
+                test = 1;
+            }else{
+                tabmax = tabindex;
+                tabmaxnum = tab[tabindex].rows.length;
+            }
+        }
+    }
+    print(&apos;表格&apos; + tabmax + &apos;最长&apos;);  //除了第一个长表格，第几个表格最长
+    s3 = tab[tabmax]; //给第一个长表格
+    ss_num = s3.rows.length;    //获取长度，可以做比较
+    print(&apos;表格行数:&apos; + ss_num);
+}
+
+$(document).ready(function() {
+    // 数据加载后等待X s再执行
+    setTimeout(function(){
+        gettab();
+    },2000);
+    });
+</code></pre><p>打开<code>开发者工具</code>查看调试信息，发现表格数量总共4个，其中第二个44个为加密的表格，第3个才是真实的表格，且有效数量为44个，有兴趣的朋友可以数一数真实的是否44个。</p>
+<p><img src="http://p5gykd3ui.bkt.clouddn.com/blog/180312/0HdJlG4cF6.png?imageslim" alt="mark"></p>
 
       
     </div>
