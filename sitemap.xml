@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.xieshang.ren/about/index.html</loc>
+    
+    <lastmod>2018-03-13T01:07:23.753Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xieshang.ren/tags/index.html</loc>
+    
+    <lastmod>2018-03-13T01:06:24.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.xieshang.ren/categories/index.html</loc>
+    
+    <lastmod>2018-03-13T01:05:45.745Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.xieshang.ren/2018/03/01/Tampermonkey_free_ss_plus/</loc>
     
     <lastmod>2018-03-13T00:18:09.928Z</lastmod>
