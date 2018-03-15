@@ -115,8 +115,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180313/F27lJF15K8.png?imageslim">
 <meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180312/e9BAD7jFJL.png?imageslim">
+<meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180314/iK7LEkcm6K.png?imageslim">
 <meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180313/0337ICBeIH.png?imageslim">
-<meta property="og:updated_time" content="2018-03-13T09:04:19.036Z">
+<meta property="og:updated_time" content="2018-03-14T05:07:13.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[油猴]小白写油猴脚本之free_ss脚本源码的编写">
 <meta name="twitter:description" content="前言此篇文字完全为零基础，高手请绕道。。。 对于油猴的功能已经没必要解释太多，只能以神器来解释。 本人只是一个只会C(死皮赖脸地算个精通) \C++(打死多算也就算略懂皮毛) \VB(曾几何时也就这个拿得出收)的过时码农，对于JS\HTML……等等前端开发为空白码农。">
@@ -396,7 +397,9 @@
 <p><img src="http://p5gykd3ui.bkt.clouddn.com/blog/180312/e9BAD7jFJL.png?imageslim" alt="源码部分截图"></p>
 <p>从页面和源码都能看出，网站使用了表格<code>table</code>控件，那么，我们把它找出来。</p>
 <hr>
-<h1 id="获取表格并展示给用户选择"><a href="#获取表格并展示给用户选择" class="headerlink" title="获取表格并展示给用户选择"></a>获取表格并展示给用户选择</h1><h2 id="获取有效的表格"><a href="#获取有效的表格" class="headerlink" title="获取有效的表格"></a>获取有效的表格</h2><p><strong>调试源码推荐使用火狐浏览器</strong></p>
+<h1 id="获取表格并展示给用户选择"><a href="#获取表格并展示给用户选择" class="headerlink" title="获取表格并展示给用户选择"></a>获取表格并展示给用户选择</h1><p>将所有大于10的表格取出，并提取第一个数据展示给用户，由用户选择正确的信息，以便后面的选择。</p>
+<p><img src="http://p5gykd3ui.bkt.clouddn.com/blog/180314/iK7LEkcm6K.png?imageslim" alt="mark"></p>
+<h2 id="获取有效的表格"><a href="#获取有效的表格" class="headerlink" title="获取有效的表格"></a>获取有效的表格</h2><p><strong>调试源码推荐使用火狐浏览器</strong></p>
 <p>取出所有成员大于10的表格并取出第一个信息，通过layer.open展示。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">choicetab</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> j;</span><br><span class="line">    <span class="keyword">var</span> tab = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"table"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> tabindex ,tabmax = <span class="number">0</span>, tabmaxnum = <span class="number">0</span>, goodtablen = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	tabchoicetxt = <span class="string">"&lt;fieldset&gt;&lt;legend&gt;请选择正确的一条&lt;/legend&gt;&lt;form name='tabchoiceform'&gt;"</span>;</span><br><span class="line">    <span class="keyword">for</span>(tabindex = <span class="number">0</span>; tabindex &lt; tab.length; tabindex++)</span><br><span class="line">    &#123;</span><br><span class="line">        print(<span class="string">'表格'</span> + tabindex + <span class="string">'长'</span> + tab[tabindex].rows.length);</span><br><span class="line">        <span class="keyword">if</span>(tab[tabindex].rows.length &gt; <span class="number">10</span>)</span><br><span class="line">        &#123;</span><br><span class="line">			goodtab[goodtablen] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">0</span>);</span><br><span class="line">			goodtab[goodtablen].push(tabindex);</span><br><span class="line">			goodtab[goodtablen].push(tab[tabindex].rows[<span class="number">1</span>].cells[<span class="number">1</span>].innerHTML.toString()+<span class="string">'&amp;nbsp;&amp;nbsp;'</span>+tab[tabindex].rows[<span class="number">1</span>].cells[<span class="number">2</span>].innerHTML.toString()+<span class="string">'&amp;nbsp;&amp;nbsp;'</span>+tab[tabindex].rows[<span class="number">1</span>].cells[<span class="number">3</span>].innerHTML.toString()+<span class="string">'&amp;nbsp;&amp;nbsp;'</span>+tab[tabindex].rows[<span class="number">1</span>].cells[<span class="number">4</span>].innerHTML.toString());</span><br><span class="line">			print(goodtab[goodtablen][<span class="number">0</span>]);</span><br><span class="line">			print(goodtab[goodtablen][<span class="number">1</span>]);</span><br><span class="line">			tabchoicetxt += genradioBox(goodtab[goodtablen][<span class="number">0</span>], <span class="string">"tab_"</span>+goodtab[goodtablen][<span class="number">0</span>], goodtab[goodtablen][<span class="number">0</span>], goodtab[goodtablen][<span class="number">1</span>], <span class="string">"tab_group"</span>, <span class="literal">false</span>) + <span class="string">"&lt;br/&gt;"</span>;</span><br><span class="line">			goodtab.push();</span><br><span class="line">			goodtablen++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	tabchoicetxt += <span class="string">"&lt;/fieldset&gt;"</span>;</span><br><span class="line">	print(tabchoicetxt);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -448,6 +451,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/14/看Youtube不再翻墙/" rel="prev" title="[穿鞋]看Youtube不再穿鞋了">
+                [穿鞋]看Youtube不再穿鞋了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -552,7 +571,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -563,7 +582,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -574,7 +593,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -848,8 +867,8 @@ var jiathis_config={
 
   
 
-  undefined
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({});</script></body>
+  
+</body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
