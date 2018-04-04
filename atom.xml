@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xieshang.ren/"/>
-  <updated>2018-03-14T07:16:28.970Z</updated>
+  <updated>2018-04-04T03:32:27.589Z</updated>
   <id>http://www.xieshang.ren/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[C++]让SSCap成为我们的好帮手</title>
+    <link href="http://www.xieshang.ren/2018/03/20/%E9%AB%98%E6%95%88%E7%9A%84SS-SSR%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.xieshang.ren/2018/03/20/高效的SS-SSR服务器验证方法/</id>
+    <published>2018-03-20T00:50:00.000Z</published>
+    <updated>2018-04-04T03:32:27.589Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。<br><a id="more"></a></p><p>   虽然现在的免费资源越来越多，也是越来越不稳定。于是乎，好多人早已自己去搬瓦工等等去自建服务器了，而对于我们这些抠门鬼，决然不会花这钱去折腾这些。</p><p>   那么问题来，当手里拿到了一大把的服务器信息，我们如何去分辨它们的有效性？网上也提供很多方案，例如SSR设置为负载均衡、按次序模式，然后去刷谷歌这类链接多的网站，全部节点都测试过了，然后删除失败的。但是，很多服务器都是几个小时更换一次密码，如果用以上的方法，不是要每隔一段时间都要来那么一下？</p><p>   一直都有这样的困扰围绕着我。于是乎，没事就想看看是否有全自动/半自动的方法去测试并给出服务器的连接信息？无意间在逗比大侠的网站上看到了它——SSCap，它具有批量测试节点信息的功能：<br>   <img src="http://p5gykd3ui.bkt.clouddn.com/blog/180404/266bFlfgFe.bmp" alt="mark"></p><p>   下面是它的菜单界面，框起来的是我增加的功能。<br>   <img src="http://p5gykd3ui.bkt.clouddn.com/blog/180404/CkG9HiKEAi.png?imageslim" alt="mark"></p><p>   增加的功能也是经历过好多次的更改。</p><p>   【1】复制出可用的节点信息然后导入到SSR中，所以出现了“拷贝所有可用节点”；</p><p>   【2】节点多了，太多失效节点，于是乎有了“删除不可用节点”；</p><p>   【3】导入节点的时候，总是会遇到与原有节点重复的，那么必须来一个“删除相同节点”；</p><p>   【4】人么，总是越来越懒的，最好是直接复制SS连接节点，一个功能直接实现——导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;删除不可用节点–&gt;拷贝所有节点，就出现了第一版的“自动”；</p><p>   【5】每次导入到SSR都要先删了原来所有的节点，太麻烦了，有没有更好的方法呢？SSR的订阅功能可以有！呃。。。只能订阅在线的，本地文件不行，于是乎就有两个方法：</p><pre><code>1、本地建立http服务；2、上传到远程服务器；3、修改SSR代码，使其支持本地文件订阅；</code></pre><p>   对于程序猿来说，必然是闲的蛋疼地选择了第3个了。于是就出现了“♥自动♥”：</p><p>   导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;删除不可用节点–&gt;按SSR订阅格式导出节点信息到本地文件–&gt;执行run.bat</p><p>   这里是想着预留一个后面接口，既然SSCap已经将信息都已经整理保存好了，那么以后还想蛋疼滴加点功能，就不用打开庞大的VS去码C++；这样也便于别人的功能定制。</p><p>   再谈谈为何选择用cmd，不用exe\python等等其他方案，第一是因为cmd不需要建立运行环境，不像python这样需要建立环境才能运行；第二是cmd命令大部分人应该都多少接触过，入门不难，而且也可以很方便地调用别的方法，例如python\exe。</p><p>   废话太多，详见源码详见：<a href="https://code.aliyun.com/xieshang/SSCap.git" target="_blank" rel="noopener">https://code.aliyun.com/xieshang/SSCap.git</a></p><p>   成品：</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="C++" scheme="http://www.xieshang.ren/categories/C/"/>
+    
+    
+      <category term="C++" scheme="http://www.xieshang.ren/tags/C/"/>
+    
+      <category term="番羽墙" scheme="http://www.xieshang.ren/tags/%E7%95%AA%E7%BE%BD%E5%A2%99/"/>
+    
+      <category term="SSR" scheme="http://www.xieshang.ren/tags/SSR/"/>
+    
+  </entry>
   
   <entry>
     <title>[穿鞋]看Youtube不再穿鞋了</title>

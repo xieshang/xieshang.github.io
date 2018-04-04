@@ -92,7 +92,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C++,番羽墙,SSR," />
 
 
 
@@ -105,14 +105,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tampermonkey">
-<meta property="og:url" content="http://www.xieshang.ren/Tampermonkey/index.html">
+<meta name="description" content="自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。">
+<meta name="keywords" content="C++,番羽墙,SSR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[C++]让SSCap成为我们的好帮手">
+<meta property="og:url" content="http://www.xieshang.ren/2018/03/20/高效的SS-SSR服务器验证方法/index.html">
 <meta property="og:site_name" content="瞎折腾">
+<meta property="og:description" content="自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-12T07:49:53.349Z">
+<meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180404/266bFlfgFe.bmp">
+<meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180404/CkG9HiKEAi.png?imageslim">
+<meta property="og:updated_time" content="2018-04-04T03:32:27.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tampermonkey">
+<meta name="twitter:title" content="[C++]让SSCap成为我们的好帮手">
+<meta name="twitter:description" content="自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。">
+<meta name="twitter:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180404/266bFlfgFe.bmp">
 
 
 
@@ -142,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xieshang.ren/Tampermonkey/"/>
+  <link rel="canonical" href="http://www.xieshang.ren/2018/03/20/高效的SS-SSR服务器验证方法/"/>
 
 
 
 
 
-  <title>Tampermonkey | 瞎折腾</title>
+  <title>[C++]让SSCap成为我们的好帮手 | 瞎折腾</title>
   
 
 
@@ -273,33 +280,223 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xieshang.ren/2018/03/20/高效的SS-SSR服务器验证方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="川">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瞎折腾">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h2 class="post-title" itemprop="name headline">Tampermonkey</h2>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h2 class="post-title" itemprop="name headline">[C++]让SSCap成为我们的好帮手</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-20T08:50:00+08:00">
+                2018-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。<br><a id="more"></a></p>
+<p>   虽然现在的免费资源越来越多，也是越来越不稳定。于是乎，好多人早已自己去搬瓦工等等去自建服务器了，而对于我们这些抠门鬼，决然不会花这钱去折腾这些。</p>
+<p>   那么问题来，当手里拿到了一大把的服务器信息，我们如何去分辨它们的有效性？网上也提供很多方案，例如SSR设置为负载均衡、按次序模式，然后去刷谷歌这类链接多的网站，全部节点都测试过了，然后删除失败的。但是，很多服务器都是几个小时更换一次密码，如果用以上的方法，不是要每隔一段时间都要来那么一下？</p>
+<p>   一直都有这样的困扰围绕着我。于是乎，没事就想看看是否有全自动/半自动的方法去测试并给出服务器的连接信息？无意间在逗比大侠的网站上看到了它——SSCap，它具有批量测试节点信息的功能：<br>   <img src="http://p5gykd3ui.bkt.clouddn.com/blog/180404/266bFlfgFe.bmp" alt="mark"></p>
+<p>   下面是它的菜单界面，框起来的是我增加的功能。<br>   <img src="http://p5gykd3ui.bkt.clouddn.com/blog/180404/CkG9HiKEAi.png?imageslim" alt="mark"></p>
+<p>   增加的功能也是经历过好多次的更改。</p>
+<p>   【1】复制出可用的节点信息然后导入到SSR中，所以出现了“拷贝所有可用节点”；</p>
+<p>   【2】节点多了，太多失效节点，于是乎有了“删除不可用节点”；</p>
+<p>   【3】导入节点的时候，总是会遇到与原有节点重复的，那么必须来一个“删除相同节点”；</p>
+<p>   【4】人么，总是越来越懒的，最好是直接复制SS连接节点，一个功能直接实现——导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;删除不可用节点–&gt;拷贝所有节点，就出现了第一版的“自动”；</p>
+<p>   【5】每次导入到SSR都要先删了原来所有的节点，太麻烦了，有没有更好的方法呢？SSR的订阅功能可以有！呃。。。只能订阅在线的，本地文件不行，于是乎就有两个方法：</p>
+<pre><code>1、本地建立http服务；
+
+2、上传到远程服务器；
+
+3、修改SSR代码，使其支持本地文件订阅；
+</code></pre><p>   对于程序猿来说，必然是闲的蛋疼地选择了第3个了。于是就出现了“♥自动♥”：</p>
+<p>   导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;删除不可用节点–&gt;按SSR订阅格式导出节点信息到本地文件–&gt;执行run.bat</p>
+<p>   这里是想着预留一个后面接口，既然SSCap已经将信息都已经整理保存好了，那么以后还想蛋疼滴加点功能，就不用打开庞大的VS去码C++；这样也便于别人的功能定制。</p>
+<p>   再谈谈为何选择用cmd，不用exe\python等等其他方案，第一是因为cmd不需要建立运行环境，不像python这样需要建立环境才能运行；第二是cmd命令大部分人应该都多少接触过，入门不难，而且也可以很方便地调用别的方法，例如python\exe。</p>
+<p>   废话太多，详见源码详见：<a href="https://code.aliyun.com/xieshang/SSCap.git" target="_blank" rel="noopener">https://code.aliyun.com/xieshang/SSCap.git</a></p>
+<p>   成品：</p>
+
       
     </div>
     
     
     
+
+	<div>
+	  
+	    <div>  <div style="text-align:center;color: #ccc;font-size:14px;">------------<i class="fa fa-paw"></i><i class="fa fa-paw"></i>  THE END  <i class="fa fa-paw"></i><i class="fa fa-paw"></i>------------</div>  </div>
+	  
+	</div>
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+            <a href="/tags/番羽墙/" rel="tag"><i class="fa fa-tag"></i> 番羽墙</a>
+          
+            <a href="/tags/SSR/" rel="tag"><i class="fa fa-tag"></i> SSR</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/14/看Youtube不再翻墙/" rel="next" title="[穿鞋]看Youtube不再穿鞋了">
+                <i class="fa fa-chevron-left"></i> [穿鞋]看Youtube不再穿鞋了
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
   </div>
 
 
