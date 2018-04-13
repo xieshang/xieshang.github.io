@@ -115,7 +115,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180404/266bFlfgFe.bmp">
 <meta property="og:image" content="http://p5gykd3ui.bkt.clouddn.com/blog/180404/CkG9HiKEAi.png?imageslim">
-<meta property="og:updated_time" content="2018-04-08T08:25:17.125Z">
+<meta property="og:updated_time" content="2018-04-13T01:48:34.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[C++]让SSCap成为我们的好帮手">
 <meta name="twitter:description" content="自从SS的出现，SSR的诞生，越来越多的SS系的出现，然后一个个的停更覆灭，其中的原因犹如传说一般，无法道明。对于我们来说，只是想出去看看动画片而已。">
@@ -408,12 +408,13 @@
 
 3、修改SSR代码，使其支持本地文件订阅；
 </code></pre><p>   对于程序猿来说，必然是闲的蛋疼地选择了第3个了。于是就出现了“♥自动♥”：</p>
-<p>   导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;删除不可用节点–&gt;按SSR订阅格式导出节点信息到本地文件–&gt;执行run.bat</p>
+   <font color="#0000FF">导入节点–&gt;删除相同节点–&gt;检测所有节点–&gt;<font color="#FF0000"><del>删除不可用节点</del>（由于可能部分帐号不定时复活，需要删除的请手动点击菜单删除）</font>–&gt;按SSR订阅格式导出节点信息到本地文件–&gt;执行run.bat</font>
+
 <p>   这里是想着预留一个后面接口，既然SSCap已经将信息都已经整理保存好了，那么以后还想蛋疼滴加点功能，就不用打开庞大的VS去码C++；这样也便于别人的功能定制。</p>
 <p>   再谈谈为何选择用cmd，不用exe\python等等其他方案，第一是因为cmd不需要建立运行环境，不像python这样需要建立环境才能运行；第二是cmd命令大部分人应该都多少接触过，入门不难，而且也可以很方便地调用别的方法，例如python\exe。</p>
 <p>   废话太多，源码详见：<a href="https://code.aliyun.com/xieshang/SSCap.git" target="_blank" rel="noopener">https://code.aliyun.com/xieshang/SSCap.git</a></p>
 <p>   成品：</p>
-<p>   <a href="https://code.aliyun.com/xieshang/SSCap/raw/master/build/SSCap.zip" target="_blank" rel="noopener">SSCap</a></p>
+<p>   <a href="https://xieshang.ren/down/FQ/SSCap.zip" target="_blank" rel="noopener">SSCap</a></p>
 <p>   <a href="https://xieshang.ren/down/FQ/ShadowsocksR.7z" target="_blank" rel="noopener">ShadowsocksR</a></p>
 
       
